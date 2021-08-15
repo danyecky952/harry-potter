@@ -1,0 +1,40 @@
+.home-page {
+  background-image: url('../assets/Background.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media (max-width: 1023px) {
+  .home-page {
+    background-image: none;
+  }
+  .top-header-container {
+    top: auto;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 1;
+    position: fixed;
+    .top-header-container__favoritos {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 10px;
+    }
+    .top-header-container__agregar {
+      border-bottom-right-radius: 0px;
+      border-top-right-radius: 10px;
+    }
+  }
+  .ui-button {
+    width: 140px !important;
+    margin: 1rem 0.1rem !important;
+  }
+  .harry-logo-and-text-section {
+    padding-top: 2rem;
+    img {
+      width: 50%;
+    }
+    p {
+      font-size: 1.5rem !important;
+    }
+  }
+}

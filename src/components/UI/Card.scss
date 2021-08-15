@@ -1,0 +1,73 @@
+.card-container {
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  width: 40%;
+  margin: 2rem;
+  border-radius: 16px;
+  position: relative;
+}
+
+.add-to-fav-btn {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.card__img-section {
+  width: 33%;
+  border-radius: 16px 0px 0px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.card__img-section .img {
+  border-radius: 50%;
+  // background-image: url('../../assets/profile_pic.png');
+  width: 166px;
+  height: 166px;
+}
+
+.card__infos-section {
+  width: 67%;
+  margin-left: 2rem;
+}
+
+.card__infos-section .header {
+  font-weight: 600;
+  color: #999999;
+}
+
+.card__infos-section__desc div {
+  margin: 0.7rem auto;
+}
+
+.card__infos-section__desc div span {
+  color: #374a59;
+}
+.card__infos-section__desc div span:first-child {
+  font-weight: 600;
+}
+
+.card__infos-section__desc div span:not(:first-child) {
+  text-transform: capitalize;
+}
+
+.normal {
+  background: linear-gradient(135deg, #ff0000 0%, #fed482 100%);
+}
+
+.Hufflepuff {
+  background: linear-gradient(135deg, #ffc700 0%, #fff388 100%);
+}
+
+.Ravenclaw {
+  background: linear-gradient(135deg, #0597b7 0%, #66d1ff 100%);
+}
+
+.Slytherin,
+.dead {
+  background: linear-gradient(135deg, #1c792b 0%, #82e95e 100%);
+}
