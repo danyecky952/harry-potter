@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './MainSection.scss';
 import Button from '../UI/Button';
 import Card from '../UI/Card';
@@ -16,15 +16,12 @@ const getAppropriateClass = (house, alive) => {
 };
 
 const MainSection = (_) => {
-  const favoriteCharacters = useSelector((state) => state.characters);
-
   const dispatch = useDispatch();
 
   const [showStudentORStaff, setShowStudentORStaff] = useState(true);
 
   const addCharacterTOFavHandler = (character) => {
     dispatch({ type: 'ADD_CHARACTER', character: character });
-    // console.log(favoriteCharacters)
   };
 
   const StudentsCards = StudentsData.map((student, index) => {
