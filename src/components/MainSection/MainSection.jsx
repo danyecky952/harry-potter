@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './MainSection.scss';
 import Button from '../UI/Button';
 import Card from '../UI/Card';
@@ -15,35 +16,37 @@ const getAppropriateClass = (house, alive) => {
 };
 
 const MainSection = (_) => {
+  const favoriteCharacters = useSelector((state) => state.characters);
+
+  const dispatch = useDispatch();
+
   const [showStudentORStaff, setShowStudentORStaff] = useState(true);
 
-  const StudentsCards = StudentsData.map((student) => {
-    const classes = getAppropriateClass(student.house, student.alive);
+  const addCharacterTOFavHandler = (character) => {
+    dispatch({ type: 'ADD_CHARACTER', character: character });
+    // console.log(favoriteCharacters)
+  };
 
+  const StudentsCards = StudentsData.map((student, index) => {
+    const classes = getAppropriateClass(student.house, student.alive);
     return (
       <Card
-        name={student.name}
-        gender={student.gender}
-        eyeColour={student.eyeColour}
-        profileImage={student.image}
-        hairColour={student.hairColour}
-        dateOfBirth={student.dateOfBirth}
+        key={index * 15}
+        character={student}
         classes={classes}
+        onAddCharacter={addCharacterTOFavHandler}
       />
     );
   });
 
-  const StaffsCards = StaffsData.map((staff) => {
+  const StaffsCards = StaffsData.map((staff, index) => {
     const classes = getAppropriateClass(staff.house, staff.alive);
     return (
       <Card
-        name={staff.name}
-        gender={staff.gender}
-        eyeColour={staff.eyeColour}
-        profileImage={staff.image}
-        hairColour={staff.hairColour}
-        dateOfBirth={staff.dateOfBirth}
+        key={index * 19}
+        character={staff}
         classes={classes}
+        onAddCharacter={addCharacterTOFavHandler}
       />
     );
   });
