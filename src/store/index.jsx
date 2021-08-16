@@ -9,7 +9,6 @@ const favoriteReducer = (state = intialeState, action) => {
     const existingCharacterIndex = state.characters.findIndex(
       (character) => character.name === action.character.name
     );
-
     const existingCharacter = state.characters[existingCharacterIndex];
 
     if (!existingCharacter) {
@@ -20,6 +19,16 @@ const favoriteReducer = (state = intialeState, action) => {
       };
     } else return state;
   }
+
+  if (action.type === 'REMOVE_CHARACTER') {
+    const updatedCharacters = state.characters.filter(
+      (character) => character.name !== action.name
+    );
+    return {
+      characters: updatedCharacters,
+    };
+  }
+
   return state;
 };
 
