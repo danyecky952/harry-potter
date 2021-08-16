@@ -49,7 +49,11 @@ const Card = (props) => {
           </div>
         </div>
         <div className='card-footer-mobile'>
-          <p>VIVO ESTUDIANTE</p>
+          <p>
+            {props.character.alive ? 'VIVO' : 'FINADO'}{' '}
+            {props.character.hogwartsStaff && ' STAFF'}
+            {props.character.hogwartsStudent && ' ESTUDIANTE'}
+          </p>
           <img
             src={props.isSelected ? BookMarkGreyFill : BookMarkFill}
             alt=''
