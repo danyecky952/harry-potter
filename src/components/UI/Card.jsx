@@ -22,8 +22,14 @@ const Card = (props) => {
         ></div>
       </div>
       <div className='card__infos-section'>
-        <p className='header'>VIVO / ESTUDIANTE</p>
-        <h2 className='profile-name'>{props.character.name}</h2>
+        <p className='header'>
+          {props.character.alive ? 'VIVO' : 'FINADO'}{' '}
+          {props.character.hogwartsStaff && '/ STAFF'}
+          {props.character.hogwartsStudent && '/ ESTUDIANTE'}
+        </p>
+        <h2 className='profile-name'>
+          {!props.character.alive && '+'} {props.character.name}
+        </h2>
         <div className='card__infos-section__desc'>
           <div>
             <span>Cumpleaños: </span>

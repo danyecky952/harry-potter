@@ -5,13 +5,14 @@ import Button from '../UI/Button';
 import Card from '../UI/Card';
 import StudentsData from '../../data/hp-students.json';
 import StaffsData from '../../data/hp-staff.json';
-
-const getAppropriateClass = (house, alive) => {
+import CharactersData from '../../data/hp-characters.json';
+import AddData from '../../data/data.json';
+const getAppropriateClass = (house) => {
   let classes = 'normal';
   if (house === 'Slytherin') classes = 'Slytherin';
   else if (house === 'Ravenclaw') classes = 'Ravenclaw';
   else if (house === 'Hufflepuff') classes = 'Hufflepuff';
-  if (alive === false) classes = 'dead';
+
   return classes;
 };
 
@@ -20,20 +21,40 @@ const MainSection = (_) => {
 
   const favoritesCharacters = useSelector((state) => state.characters);
 
-  const [showStudentORStaff, setShowStudentORStaff] = useState(true);
+  const [showStudentORStaff, setShowStudentORStaff] = useState('characters');
+  // const [showCharacters, setShowCharecters] = useState([
+  //   ...CharactersData,
+  //   ...AddData.characters,
+  // ]);
 
   const addCharacterTOFavHandler = (character) => {
     dispatch({ type: 'ADD_CHARACTER', character: character });
   };
 
+  const CharacteresCards = CharactersData.map((characters, index) => {
+    const classes = getAppropriateClass(characters.house);
+
+    const alreadySelected = favoritesCharacters.findIndex(
+      (character) => character.name === characters.name
+    );
+
+    return (
+      <Card
+        key={index * 15}
+        isSelected={alreadySelected !== -1}
+        character={characters}
+        classes={classes}
+        onAddCharacter={addCharacterTOFavHandler}
+      />
+    );
+  });
+
   const StudentsCards = StudentsData.map((student, index) => {
-    let classes = getAppropriateClass(student.house, student.alive);
+    const classes = getAppropriateClass(student.house);
 
     const alreadySelected = favoritesCharacters.findIndex(
       (character) => character.name === student.name
     );
-
-    if (alreadySelected !== -1) classes = 'Hufflepuff';
 
     return (
       <Card
@@ -47,13 +68,11 @@ const MainSection = (_) => {
   });
 
   const StaffsCards = StaffsData.map((staff, index) => {
-    let classes = getAppropriateClass(staff.house, staff.alive);
+    const classes = getAppropriateClass(staff.house);
 
     const alreadySelected = favoritesCharacters.findIndex(
       (character) => character.name === staff.name
     );
-
-    if (alreadySelected !== -1) classes = 'Hufflepuff';
 
     return (
       <Card
@@ -67,11 +86,11 @@ const MainSection = (_) => {
   });
 
   const showStudent = (_) => {
-    setShowStudentORStaff(true);
+    setShowStudentORStaff('student');
   };
 
   const showStaff = (_) => {
-    setShowStudentORStaff(false);
+    setShowStudentORStaff('staff');
   };
 
   return (
@@ -80,17 +99,18 @@ const MainSection = (_) => {
         <Button
           label='ESTUDIANTES'
           onClick={showStudent}
-          active={showStudentORStaff ? true : false}
+          active={showStudentORStaff === 'student' ? true : false}
         />
         <Button
           label='STAFF'
           onClick={showStaff}
-          active={!showStudentORStaff ? true : false}
+          active={showStudentORStaff === 'staff' ? true : false}
         />
       </div>
       <div className='main-section-container'>
-        {showStudentORStaff && StudentsCards}
-        {!showStudentORStaff && StaffsCards}
+        {showStudentORStaff === 'characters' && CharacteresCards}
+        {showStudentORStaff === 'student' && StudentsCards}
+        {showStudentORStaff === 'staff' && StaffsCards}
       </div>
     </>
   );

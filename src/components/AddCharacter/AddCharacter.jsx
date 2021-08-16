@@ -14,7 +14,7 @@ const AddCharacter = (props) => {
 
   const onSubmitFormHandler = (event) => {
     event.preventDefault();
-    fetch('http://localhost:5000/characters', {
+    fetch('http://localhost:3000/characters', {
       method: 'POST',
       body: JSON.stringify({
         name: name,
@@ -23,6 +23,7 @@ const AddCharacter = (props) => {
         hairColour: hairColor,
         gender: gender,
         hogwartsStudent: studentOrStaff === 'Estudiante',
+        hogwartsStaff: studentOrStaff === 'Staff',
       }),
       headers: { 'Content-Type': 'application/json' },
     })

@@ -6,7 +6,10 @@ const Button = (props) => {
   };
 
   return (
-    <button className='ui-button' onClick={onClickHandler}>
+    <button
+      className={`ui-button ${props.active ? 'active' : ''}`}
+      onClick={onClickHandler}
+    >
       {props.label}
     </button>
   );

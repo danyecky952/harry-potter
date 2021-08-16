@@ -1,0 +1,74 @@
+{
+  "characters": [
+    {
+      "name": "Daniel",
+      "dateOfBirth": "2021-08-15",
+      "eyeColour": "verdes",
+      "hairColour": "gris",
+      "gender": "Hombre",
+      "hogwartsStudent": true,
+      "hogwartsStaff": false,
+      "id": 1
+    },
+    {
+      "name": "Daniel",
+      "dateOfBirth": "2021-08-15",
+      "eyeColour": "verdes",
+      "hairColour": "gris",
+      "gender": "Hombre",
+      "hogwartsStudent": true,
+      "hogwartsStaff": false,
+      "id": 2
+    },
+    {
+      "name": "Aida",
+      "dateOfBirth": "2021-08-10",
+      "eyeColour": "amarillo",
+      "hairColour": "Blanco",
+      "gender": "Mujer",
+      "hogwartsStudent": true,
+      "hogwartsStaff": false,
+      "id": 3
+    },
+    {
+      "name": "Aida",
+      "dateOfBirth": "2021-08-10",
+      "eyeColour": "amarillo",
+      "hairColour": "Blanco",
+      "gender": "Mujer",
+      "hogwartsStudent": true,
+      "hogwartsStaff": false,
+      "id": 4
+    },
+    {
+      "name": "Aida",
+      "dateOfBirth": "2021-08-10",
+      "eyeColour": "amarillo",
+      "hairColour": "Blanco",
+      "gender": "Mujer",
+      "hogwartsStudent": true,
+      "hogwartsStaff": false,
+      "id": 5
+    },
+    {
+      "name": "Aida",
+      "dateOfBirth": "2021-08-10",
+      "eyeColour": "amarillo",
+      "hairColour": "Blanco",
+      "gender": "Mujer",
+      "hogwartsStudent": true,
+      "hogwartsStaff": false,
+      "id": 6
+    },
+    {
+      "name": "",
+      "dateOfBirth": "",
+      "eyeColour": "",
+      "hairColour": "",
+      "gender": "Mujer",
+      "hogwartsStudent": true,
+      "hogwartsStaff": false,
+      "id": 7
+    }
+  ]
+}
