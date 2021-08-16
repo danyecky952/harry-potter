@@ -6,7 +6,7 @@ import Card from '../UI/Card';
 import StudentsData from '../../data/hp-students.json';
 import StaffsData from '../../data/hp-staff.json';
 import CharactersData from '../../data/hp-characters.json';
-import AddData from '../../data/data.json';
+
 const getAppropriateClass = (house) => {
   let classes = 'normal';
   if (house === 'Slytherin') classes = 'Slytherin';
@@ -22,10 +22,6 @@ const MainSection = (_) => {
   const favoritesCharacters = useSelector((state) => state.characters);
 
   const [showStudentORStaff, setShowStudentORStaff] = useState('characters');
-  // const [showCharacters, setShowCharecters] = useState([
-  //   ...CharactersData,
-  //   ...AddData.characters,
-  // ]);
 
   const addCharacterTOFavHandler = (character) => {
     dispatch({ type: 'ADD_CHARACTER', character: character });

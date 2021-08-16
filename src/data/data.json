@@ -69,6 +69,26 @@
       "hogwartsStudent": true,
       "hogwartsStaff": false,
       "id": 7
+    },
+    {
+      "name": "Daniel",
+      "dateOfBirth": "2021-08-15",
+      "eyeColour": "verdes",
+      "hairColour": "gris",
+      "gender": "Mujer",
+      "hogwartsStudent": true,
+      "hogwartsStaff": false,
+      "id": 8
+    },
+    {
+      "name": "Daniel oce",
+      "dateOfBirth": "2021-08-15",
+      "eyeColour": "verdes",
+      "hairColour": "gris",
+      "gender": "Mujer",
+      "hogwartsStudent": true,
+      "hogwartsStaff": false,
+      "id": 9
     }
   ]
 }
