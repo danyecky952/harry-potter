@@ -80,13 +80,34 @@ const MainSection = (_) => {
       />
     );
   });
+  const filterCharactersAlive = CharactersData.filter((staff) => staff.alive);
 
+  const AliveCards = filterCharactersAlive.map((staff, index) => {
+    const classes = getAppropriateClass(staff.house);
+
+    const alreadySelected = favoritesCharacters.findIndex(
+      (character) => character.name === staff.name
+    );
+
+    return (
+      <Card
+        key={index * 19}
+        isSelected={alreadySelected !== -1}
+        character={staff}
+        classes={classes}
+        onAddCharacter={addCharacterTOFavHandler}
+      />
+    );
+  });
   const showStudent = (_) => {
     setShowStudentORStaff('student');
   };
 
   const showStaff = (_) => {
     setShowStudentORStaff('staff');
+  };
+  const showAlive = (_) => {
+    setShowStudentORStaff('alive');
   };
 
   return (
@@ -102,11 +123,17 @@ const MainSection = (_) => {
           onClick={showStaff}
           active={showStudentORStaff === 'staff' ? true : false}
         />
+        <Button
+          label='Vivos'
+          onClick={showAlive}
+          active={showStudentORStaff === 'alive' ? true : false}
+        />
       </div>
       <div className='main-section-container'>
         {showStudentORStaff === 'characters' && CharacteresCards}
         {showStudentORStaff === 'student' && StudentsCards}
         {showStudentORStaff === 'staff' && StaffsCards}
+        {showStudentORStaff === 'alive' && AliveCards}
       </div>
     </>
   );
